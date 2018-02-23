@@ -1,0 +1,11 @@
+{
+"name": "ReadWords",
+"author": "Dinesh D",
+"version": "0.0.1",
+"Date": "22-Feb-18",
+"description": "Test the Censored words of a text",
+"main": "readWords",
+"dependencies": {},
+"engines": { "node": "*"},
+"repository": {"Github":"https://github.com/ddineesh/NodeMongoAngular.git"}
+}

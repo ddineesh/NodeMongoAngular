@@ -1,16 +1,17 @@
-var censoredWords=['Good','Bad','Mad'];
+var censoredWords=["Good","Bad","Mad"];
 var customerCensoredWords=[];
 
 function censor(inStr)
 {	
-	for (var i; i< censoredWords.length;i++)
+	for (var i=0; i< censoredWords.length;i++)
 		{
 			inStr=inStr.replace(censoredWords[i],"***");
 		}
-	for (var i; i< customerCensoredWords.length;i++)
+	for (var i=0; i< customerCensoredWords.length;i++)
 	{
-		inStr=	inStr.replace(customerCensoredWords[i],"***");
+		inStr=inStr.replace(customerCensoredWords[i],"***");
 	}
+	console.log("inStr::"+inStr);
 	return inStr;
 }
 
