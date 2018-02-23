@@ -1,0 +1,11 @@
+{
+"name": "censorify",
+"author": "Dinesh D",
+"version": "0.0.1",
+"Date": "21-Feb-18",
+"description": "Censored words of a text",
+"main": "censorWords",
+"dependencies": {},
+"engines": { "node": "*"},
+"repository": {"Github":"https://github.com/ddineesh/NodeMongoAngular.git"}
+}
