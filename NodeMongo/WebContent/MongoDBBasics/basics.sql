@@ -2,6 +2,10 @@
 mongod --dbpath c:\Dinesh\MongoDB\data\db 
 --This will show all the Data base currently
 show dbs;
+--This command will show all the collections in the current DB
+
+show collections;
+
 --This below two commands will shutdown the server
 use admin;
 db.shutdownServer();
@@ -30,9 +34,9 @@ db.breakFast.insert({name: "Pori", taste: "yes", health: "yes"});
 db.breakFast.find();
 
 --below commands for find
-db.myCollection.findOne(); -- this will find the first document
-db.myCollection.find({score : 9}); -- this will find the score equals 9
-db.myCollection.find({score: {$gt : 7}});
-db.myCollection.find({score: {$lt : 8}});
-db.myCollection.find({score: {$in : [7,9]}});
-db.myCollection.find({$and: [{$gt : 7}});
+db.myCollections.findOne(); -- this will find the first document
+db.myCollections.find({score : 9}); -- this will find the score equals 9
+db.myCollections.find({score: {$gt : 7}});
+db.myCollections.find({score: {$lt : 8}});
+db.myCollections.find({score: {$in : [7,9]}});
+db.myCollections.find({$and : [{score: 9},{name: "Dinesh"}]});
