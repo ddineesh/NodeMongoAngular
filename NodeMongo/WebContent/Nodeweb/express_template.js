@@ -2,15 +2,15 @@ var express= require('express');
 var ejs= require('ejs');
 
 var app= express();
-app.set('views', './views');
+app.set('views', '../views');
 app.engine('html', ejs.renderFile);
 
 app.locals = {
-	uname: 'Dinesh',
-	vehicle: 'Honda CRV',
-	terrian: ' Mountains',
-	climate: 'winter',
-	location: 'Prs Hts'
+	uname: "Dinesh",
+	vehicle: "Honda CRV",
+	terrian: "Mountains",
+	climate: "winter",
+	location: "Prs Hts"
 };
 
 app.get('/ejs', function(req, res){
