@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>User Details</title>
+<link ref="stylesheet" type="text/css"
+href="/static/css/style.css">
+</head>
+<body>
+<div class="form-container">
+<p class="form-heading">User Details</p>
+<form method="post" action="/user/update">
+<label> User Name: </label>
+<input type="text" name="username"><br>
+<label> Email:</label>
+<input type="email" name="email"><br>
+<label> Favorite Color:</label>
+<input type="text" name="color"><br>
+<input type="submit" value="Update">
+</form>
+</div>
+<form method="post" action="/user/deleteuser">
+<label>Delete User</label>
+<input type="submit" value="Delete User">
+</form>
+<hr><%= msg %>
+</body>
+</html>
