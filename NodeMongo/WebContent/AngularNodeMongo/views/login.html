@@ -3,11 +3,11 @@
 <head>
 <meta charset="ISO-8859-1">
 <title>User login and session page</title>
-<link ref="stylesheet" type="text/css" 
-href ="/static/css/style.css"/>
+<link rel="stylesheet" type="text/css"
+	href="/static/css/style.css"/>
 </head>
 <body>
-<div> class="form-container">
+<div class="form-container">
 <p class="form-header"> Login </p>
 <form method="POST">
 <label>User Name:</label>
@@ -18,6 +18,7 @@ href ="/static/css/style.css"/>
 </form>
 </div>
 <a href="/signup">sign Up</a>
-<hr><%=msg%>
+<hr>
+<br><%= msg %>
 </body>
 </html>
