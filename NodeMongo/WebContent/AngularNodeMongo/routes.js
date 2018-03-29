@@ -7,9 +7,10 @@ module.exports=function(app){
 	
 	app.get('/', function(req,res){
 		
-		req.session.userID="test";
+	/*	Removed the temp user details
+	 * req.session.userID="test";
 		req.session.username="Dinesh";
-		req.session.msg=" Dinesh Testing session";
+		req.session.msg=" Dinesh Testing session";*/
 		
 		//add session verify for the app
 		if(req.session.userID)
@@ -48,7 +49,14 @@ module.exports=function(app){
 		req.session.destroy( function (){
 			res.redirect('/login');
 		});
-		
-		
 	});
+	
+	// user controller & database logic
+	
+	var users= require('./users_controller');
+	app.post('/signup', users.signup);
+	/*app.post('/user/update', users.updateUser);
+	app.post('/user/delete', users.deleteUser);*/
+	app.post('/login', users.login);
+	/*app.get('/user/profile', users.getUserProfile);*/
 };
