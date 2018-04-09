@@ -1,7 +1,8 @@
 angular.module('firstApp',[]).
 controller('radioController', function($scope){
+	console.log('i am in the radioController');
 	$scope.colors=['red','green','blue'];
-	$scope.style = {
+	$scope.myStyle = {
 		"backgroud-color": "blue",
 		"display": "inline-block",
 		"height": "100px",

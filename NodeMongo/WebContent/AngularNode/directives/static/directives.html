@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html ng-app="firstApp">
+<head>
+<title>Angular JS Data bindings Directivies example</title>
+</head>
+<body>
+<h2>Data Binds Directives</h2>
+<div ng-controller="radioController">
+<span ng-style="myStyle"></span>
+<label ng-repeat="color in colors">
+{{color}}
+<input type='radio' name="mColor" ng-model="myStyle['background-color']"
+		ng-value="color" id="{{color}}">
+</label>
+</div><hr>
+<script src="http://code.angularjs.org/1.2.9/angular.min.js"> </script>
+<script src="/js/directives.js"></script>
+</body>
+</html>

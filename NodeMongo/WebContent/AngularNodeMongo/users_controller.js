@@ -2,6 +2,7 @@ var MongoClient= require('mongodb').MongoClient
 ,assert=require('assert');
 var crypto= require('crypto');
 var ObjectID= require('mongodb').ObjectID;
+var logging=require('logging');
 var myDB=null;
 var users=null;
 
@@ -17,7 +18,8 @@ function hashPW(pwd){
 
 MongoClient.connect("mongodb://localhost:27017/test", function (err, db) {
 	assert.equal(null, err);
-	  console.log("Connected successfully to server");
+	  /*console.log("Connected successfully to server");*/
+	  logging.log('Connected successfully to server');
 	 myDB=db.db("myapp");
 	 users=myDB.collection('users');
 });
