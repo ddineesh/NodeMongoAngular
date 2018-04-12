@@ -13,6 +13,26 @@
 		ng-value="color" id="{{color}}">
 </label>
 </div><hr>
+<div ng-controller="selectController">
+<select ng-model="camera" 
+ ng-options="c.model group by c.make for c in cameras"></select>
+ {{camera|json}}
+</div><hr>
+
+<div ng-controller="eventsController">
+<input type="text"
+ng-blur="focusState='Blurred'"
+ng-focus="focusState='Focused'"
+ng-mouseenter="mouseState='Entered'"
+ng-keyup= "keyStroke($event)"
+ng-click="mouseClick($event)">
+ <br/>
+Focus State: {{focusState}} <br/>
+Mouse State: {{mouseState}} <br/>
+Key Info: {{keyInfo | json}} <br/>
+Mouse Info: {{mouseInfo | json}} <br/>
+</div><hr>
+
 <script src="http://code.angularjs.org/1.2.9/angular.min.js"> </script>
 <script src="/js/directives.js"></script>
 </body>
