@@ -15,4 +15,20 @@ controller('Characters', function($scope){
 		$scope.currentName= $scope.names[0];
 		$scope.$broadcast('CharacterChanged', $scope.currentName);
 	});
+}). 
+controller('Character', function($scope){
+	$scope.info= {'Frodo': {weapon: 'Sting', race: 'Hobbit'},
+				  'Aragorn': {weapon: 'Sword', race: 'Man'},
+				  'Legolas': {weapon: 'Bow' , race: 'Elf'},
+				  'Gimli' : {weapon: 'Axe' , race: 'Dwarf'}};
+ $scope.currentInfo = $scope.info.Frodo;
+ $scope.$on('CharacterChanged', function(event,newCharacter){
+	 $scope.currentInfo=$scope.info[newCharacter];
+ });
+ 
+ $scope.deleteChar= function(){
+	 console.log(' Character deleted....');
+	delete $scope.info[$scope.currentName];
+	$scope.$emit('CharacterDeleted',$scope.currentName);
+ };
 });
