@@ -17,6 +17,28 @@ app.controller('myController', ['$scope','$http', function($scope,$http){
 	};
 	
 	$scope.addWord=function(){
-		
-	}
-}])
+		$http.post('http://localhost/add', {word: $scope.newWord}).
+		success(function(data,status,headers,config){
+			$scope.newWord='';
+			$scope.status=data;
+			$scope.getWords();
+		}).
+		error(function (data,status,header,config){
+			$scope.status=data;
+		})
+	};
+	
+	$scope.removeWord=function(deleteWord){
+		$http.post('http://localhost/remove', {word: deleteWord}).
+		success(function(data,status,headers,config){
+			$scope.words=data;
+			$scope.status=data;
+			$scope.getWords();
+			
+		}).
+		error(function(data,status,header,config){
+		$scope.status=data;	
+		});
+	};
+	$scope.getWords();
+}]);
