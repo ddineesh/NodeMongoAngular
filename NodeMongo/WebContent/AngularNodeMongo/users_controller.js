@@ -41,7 +41,7 @@ exports.signup = function(req, res)
 			req.session.userID=user._id;
 			req.session.username=user.username;
 			req.session.msg="Authenticated as "+ user.username;
-			res.redirect('/signup');
+			res.redirect('/');
 		}
 	});
 };
@@ -53,11 +53,13 @@ exports.login= function(req,res){
 			{
 			err="User Not Found.";
 			} else if(user.hashed_password==hashPW(req.body.password.toString())){
+				req.session.regenerate(function(){
 				req.session.userID=user._id;
 				req.session.username=user.username;
 				req.session.msg=" Authenticated as "+ user.username;
-			}
-			else{
+				req.redirect('/');
+			});
+			}else{
 				err='Authentication failed!!!'
 			}
 		if(err){
@@ -67,4 +69,52 @@ exports.login= function(req,res){
 			});
 		}
 	});
+	
+	exports.getUserProfile= function(req,res){
+		users.findOne({_id: new ObjecID(req.session.userID)}, function(err, user){
+			
+			if(!user)
+				{
+				res.json(404, {err: 'User Not Found'});
+				} else{
+					res.json(user);
+				}
+		});
+	};
+	
+	exports.updateUser= function(req,res){
+		users.findOne({_id: new ObjectID(req.session.userID)}, function(err,user){
+			user.email=req.session.email;
+			user.color=req.session.color;
+			users.save(user,{w:1}, function(err){
+				if(err){
+					res.session.error=err;
+				}else {
+					req.session.msg='User Updated';
+				}
+				res.redirect('/user');
+			});
+		});
+	};
+	
+	exports.deleteUser= function(req,res){
+		users.findOne({_id: new ObjectID(req.session.userID)}, function(err,user){
+			if(user){
+				users.remove({_id: user._id}, function(err){
+					if(err){
+						req.session.error=err;
+					}
+					req.session.destroy(function(){
+						res.redirect('/login');
+					});
+				});
+			}else {
+					req.session.msg=" User Not Found!";
+					req.session.destroy(function(){
+						res.redirect('/login');
+					});
+					}	
+				});
+	};
 };
+

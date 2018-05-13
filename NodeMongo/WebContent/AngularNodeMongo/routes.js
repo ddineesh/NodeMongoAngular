@@ -55,8 +55,8 @@ module.exports=function(app){
 	
 	var users= require('./users_controller');
 	app.post('/signup', users.signup);
-	/*app.post('/user/update', users.updateUser);
-	app.post('/user/delete', users.deleteUser);*/
+	app.post('/user/update', users.updateUser);
+	app.post('/user/delete', users.deleteUser);
 	app.post('/login', users.login);
-	/*app.get('/user/profile', users.getUserProfile);*/
+	app.get('/user/profile', users.getUserProfile);
 };
