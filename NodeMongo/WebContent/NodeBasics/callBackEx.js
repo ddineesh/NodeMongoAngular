@@ -2,9 +2,9 @@ function loggingItem(item, callback)
 {
 	console.log("logging Item:"+item);
 	
-//	process.nextTick(function (){
+	process.nextTick(function (){
 		callback(item);
-	//});
+	});
 }
 
 loggingItem('Car', function (msg){
