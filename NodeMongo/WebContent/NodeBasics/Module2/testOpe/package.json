@@ -1,0 +1,11 @@
+{
+"name": "MathOperations",
+"author": "Dinesh D",
+"version": "0.0.1",
+"Date": "05-June-19",
+"description": "it will be helpful for the Math operations",
+"main": "operations",
+"dependencies": {},
+"engines": { "node": "*"},
+"repository": {"Github":"https://github.com/ddineesh/NodeMongoAngular.git"}
+}
